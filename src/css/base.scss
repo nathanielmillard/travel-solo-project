@@ -103,3 +103,32 @@ form {
     opacity: 50%
   }
 }
+
+.previous-trips {
+  grid-column: 1 / 3;
+  @include gridArea($darkw, $highmedc);
+  padding: 1vh;
+  @include flexControl(column);
+  h4 {
+    @include zeroAround;
+    font-family: $titlefont;
+  }
+  .previous-trip-header {
+    @include flexControl(row);
+    padding: 2px;
+    justify-content: space-between;
+  }
+  .image-scroll {
+    @include flexControl(row);
+    padding: 2px;
+    height: 15vh;
+    overflow-x: scroll;
+    img {
+      height: 10vh;
+      width: 15vw;
+      padding: 2px;
+      border-radius: 10px;
+      align-self: center;
+    }
+  }
+}
