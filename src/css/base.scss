@@ -41,41 +41,65 @@ img {
 main {
   font-family: $bodyfont;
   display: grid;
-  grid-gap: 3vw;
   align-items: stretch;
   grid-template-columns: 30vw 70vw;
   grid-template-rows: 60vh 20vh;
 }
 
 form {
-  background-color: $highmedc;
-  color: $darkw;
-  border-radius: 15px;
-  margin: 1vh;
+  @include gridArea($highmedc, $darkw)
   @include flexControl(column)
-  padding: 2vw;
   align-content: center;
   justify-content: space-between;
-  h3 {
-    @include zeroAround;
-    font-family: $titlefont;
-  }
-  h5 {
-    @include zeroAround;
-    padding-left: 1vw;
-    // font-style: italic;
-    font-weight: 600;
-  }
   input {
     border: none;
     height: 3vh;
     background-color: $lightc;
-    opacity: 70%;
+    opacity: 7
+    0%;
   }
   img {
     height: 15vh;
     width: 20vw;
     border-radius: 25px;
     align-self: center;
+  }
+}
+
+.trip-cards {
+  @include zeroAround;
+  @include gridArea($lowmedc, $lightw)
+  border-radius: 15px;
+  margin: 1vh;
+  .card-section {
+    @include flexControl(row);
+    height: 95%;
+    overflow-x: scroll;
+  }
+  .trip-card {
+    @include gridArea($lightw, $lightc)
+    @include flexControl(column);
+    img {
+      height: 25vh;
+      width: 25vw;
+      border-radius: 25px;
+      align-self: center;
+    }
+    h5 {
+      font-family: $titlefont;
+      align-self: center;
+      color: $darkc;
+    }
+    h6 {
+      @include zeroAround
+      color: $darkc;
+      font-weight: lighter;
+    }
+    .country-title {
+      align-self: flex-end;
+    }
+  }
+  .pending {
+    opacity: 50%
   }
 }
