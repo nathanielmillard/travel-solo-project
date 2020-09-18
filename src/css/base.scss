@@ -11,7 +11,7 @@ header {
   @include flexControl(row);
   align-items: center;
   width: 100vw;
-  height: 11vh;
+  height: 10vh;
   background: $lightc;
   h1 {
     @include zeroAround;
@@ -32,4 +32,17 @@ header {
       align-self: flex-end;
     }
   }
+}
+
+img {
+  height: 100px;
+}
+
+main {
+  display: grid;
+  grid-gap: 3vw;
+  align-items: stretch;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 60vh 20vh;
+  justify-items: stretch;
 }
