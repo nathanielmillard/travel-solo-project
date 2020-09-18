@@ -1,7 +1,35 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+@import 'variables';
+@import 'functions';
 
 body {
-  background: $primary-background;
+  @include zeroAround;
+  background: $lightw;
+}
+
+header {
+  @include zeroAround;
+  @include flexControl(row);
+  align-items: center;
+  width: 100vw;
+  height: 11vh;
+  background: $lightc;
+  h1 {
+    @include zeroAround;
+    padding: 1vw 1vw 0 1vw;
+    font-family: $titlefont;
+    color: $darkw
+  }
+  .logo {
+    @include flexControl(column);
+    h2 {
+      @include zeroAround;
+      font-family: $titlefont;
+      color: $darkw;
+      padding:  0 1vw 1vw 1vw;
+      font-size: 1.5vh;
+      font-weight: 300;
+      font-style: italic;
+      align-self: flex-end;
+    }
+  }
 }
