@@ -21,7 +21,7 @@ const getUserData = () => {
     domUpdates.assignKeyValues(user, tripDeck, responses[2].destinations, today);
     domUpdates.updateWelcome();
     domUpdates.user.sortTrips();
-    console.log(domUpdates.user)
+    domUpdates.updateUpcomingTrips();
   })
   .catch(error => console.log(error))
 };
