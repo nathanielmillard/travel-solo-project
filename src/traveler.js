@@ -21,6 +21,20 @@ class Traveler {
       return total
     }, 0)
   }
+  sortTrips (today) {
+    let mytrips = this.allTrips.filter(trip => trip.userID === this.id);
+    console.log(mytrips)
+    mytrips.forEach((trip) => {
+      if(moment(trip.date).format('YYYY-MM-DD') > moment(today).format('YYYY-MM-DD')) {
+        this.futureTrips.push(trip)
+      } if (moment(trip.date).format('YYYY-MM-DD') < moment(today).format('YYYY-MM-DD')){
+        this.pastTrips.push(trip)
+      } if (trip.status === 'pending') {
+        this.pendingTrips.push(trip)
+      }
+    });
+
+  }
 }
 
 export default Traveler
