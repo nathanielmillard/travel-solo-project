@@ -20,7 +20,6 @@ const travelers = [
 "travelerType": "photographer"
 },
 {
-{
 "id": 8,
 "name": "Aaron Storm",
 "travelerType": "history buff"
@@ -31,6 +30,5 @@ const travelers = [
 "travelerType": "foodie"
 }
 ]
-}
 
-module.exports = travelers;
+export default travelers;
