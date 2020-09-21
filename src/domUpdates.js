@@ -25,7 +25,6 @@ const domUpdates = {
     let futureTripCards = document.querySelector('.future-card-section');
     futureTripCards.innerHTML = ''
     domUpdates.user.futureTrips.forEach((trip) => {
-      console.log(domUpdates.createCard(trip))
       futureTripCards.insertAdjacentHTML('beforeEnd', domUpdates.createCard(trip))
     });
   },
@@ -43,6 +42,21 @@ const domUpdates = {
     </div>
     `
   },
+
+  updatePreviousTrips: () => {
+    let pastTripPhotos = document.querySelector('.image-scroll');
+    pastTripPhotos.innerHTML = '';
+    domUpdates.user.pastTrips.forEach((trip) => {
+      let destination = domUpdates.allDestinations.find(destination => {
+        return trip.destinationID === destination.id
+      })
+      pastTripPhotos.insertAdjacentHTML('beforeEnd',
+      `<img src=${destination.image} alt="Photo of destination">`)
+    });
+    let annualSpending = document.querySelector('.annual-spending')
+    domUpdates.user.calculateAnnualSpending(domUpdates.today)
+    annualSpending.innerText = `You have spent ${domUpdates.user.totalSpentAnnually} this year.`
+  }
 
 }
 

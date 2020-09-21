@@ -22,6 +22,7 @@ const getUserData = () => {
     domUpdates.updateWelcome();
     domUpdates.user.sortTrips();
     domUpdates.updateUpcomingTrips();
+    domUpdates.updatePreviousTrips();
   })
   .catch(error => console.log(error))
 };
