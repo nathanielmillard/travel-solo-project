@@ -33,9 +33,18 @@ const trips = [
 "travelers": 5,
 "date": "2020/10/16",
 "duration": 6,
+"status": "approved",
+"suggestedActivities": []
+},{
+"id": 5,
+"userID": 1,
+"destinationID": 2,
+"travelers": 5,
+"date": "2020/12/16",
+"duration": 6,
 "status": "pending",
 "suggestedActivities": []
 }
 ]
 
-module.exports = trips;
+export default trips;
