@@ -17,7 +17,6 @@ class Traveler {
       this.totalSpentAnnually = mytrips.reduce((total, trip) => {
       if(moment(trip.date).year() === moment(today).year()){
         total += trip.estimatedCost
-        console.log(trip.estimatedCost)
       }
       return total
     }, 0)
@@ -37,7 +36,6 @@ class Traveler {
         this.pendingTrips.push(trip)
       }
     });
-
   }
 }
 

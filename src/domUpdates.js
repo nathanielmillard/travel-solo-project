@@ -56,7 +56,22 @@ const domUpdates = {
     let annualSpending = document.querySelector('.annual-spending')
     domUpdates.user.calculateAnnualSpending(domUpdates.today)
     annualSpending.innerText = `You have spent ${domUpdates.user.totalSpentAnnually} this year.`
+  },
+
+  updateForm: () => {
+    let whereto = document.querySelector('.where-to')
+    domUpdates.allDestinations.forEach((destination) => {
+      whereto.insertAdjacentHTML('beforeEnd',
+    `<option value="${destination.destination}">${destination.destination}</option>`)
+    });
+  },
+
+  updateFormImage: () => {
+    //connect to click handler if user chooses a city
+    let travelFormPhoto = document.querySelector('.travel-form-photo')
+    // travelFormPhoto.src =
   }
+
 
 }
 

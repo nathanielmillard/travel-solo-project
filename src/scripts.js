@@ -23,9 +23,40 @@ const getUserData = () => {
     domUpdates.user.sortTrips();
     domUpdates.updateUpcomingTrips();
     domUpdates.updatePreviousTrips();
+    domUpdates.updateForm();
+
   })
   .catch(error => console.log(error))
 };
 
+const checkFormCost = () => {
+  let travelFormPlace = document.querySelector(".travel-form-place")
+  let travelFormDate = document.querySelector(".travel-form-date")
+  let travelFormDays = document.querySelector(".travel-form-days")
+  let travelFormPeople = document.querySelector(".travel-form-people")
+  let travelFormEstimate = document.querySelector(".travel-form-estimate")
+  if (travelFormDate.value && travelFormDays.value && travelFormPeople.value){
+    let latestTripRequest = domUpdates.allTrips.pop();
+    let destination =  domUpdates.allDestinations.find(destination => {
+      return destination.destination === travelFormPlace.value
+    });
+    let trialtrip = {
+      id: latestTripRequest.id + 1,
+      userID: domUpdates.user.id,
+      destinationID: destination.id,
+      travelers: travelFormPeople.value,
+      date: travelFormDate.value,
+      duration: travelFormDays.value,
+      status: 'pending',
+      suggestedActivities: [],
+    }
+    let trialTrip = new Trip(trialtrip, destination);
+    trialTrip.calculateEstimatedCost();
+    travelFormEstimate.innerText = `Estimated Cost: ${trialTrip.estimatedCost}`
+  }
+}
 
-window.onload = getUserData()
+let travelForm = document.querySelector(".trip-request")
+travelForm.addEventListener("change", checkFormCost);
+
+window.onload = getUserData;
