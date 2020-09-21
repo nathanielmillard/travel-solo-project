@@ -1,7 +1,134 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+@import 'variables';
+@import 'functions';
 
 body {
-  background: $primary-background;
+  @include zeroAround;
+  background: $lightw;
+}
+
+header {
+  @include zeroAround;
+  @include flexControl(row);
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background: $lightc;
+  h1 {
+    @include zeroAround;
+    padding: 1vw 1vw 0 1vw;
+    font-family: $titlefont;
+    color: $darkw
+  }
+  .logo {
+    @include flexControl(column);
+    h2 {
+      @include zeroAround;
+      font-family: $titlefont;
+      color: $darkw;
+      padding:  0 1vw 1vw 1vw;
+      font-size: 1.5vh;
+      font-weight: 300;
+      font-style: italic;
+      align-self: flex-end;
+    }
+  }
+}
+
+img {
+  height: 100px;
+}
+
+main {
+  font-family: $bodyfont;
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 60vh 20vh;
+}
+
+form {
+  @include gridArea($highmedc, $darkw)
+  @include flexControl(column)
+  align-content: center;
+  justify-content: space-between;
+  input {
+    border: none;
+    height: 3vh;
+    background-color: $lightc;
+    opacity: 7
+    0%;
+  }
+  img {
+    height: 15vh;
+    width: 20vw;
+    border-radius: 25px;
+    align-self: center;
+  }
+}
+
+.trip-cards {
+  @include zeroAround;
+  @include gridArea($lowmedc, $lightw)
+  border-radius: 15px;
+  margin: 1vh;
+  .card-section {
+    @include flexControl(row);
+    height: 95%;
+    overflow-x: scroll;
+  }
+  .trip-card {
+    @include gridArea($lightw, $lightc)
+    @include flexControl(column);
+    img {
+      height: 25vh;
+      width: 25vw;
+      border-radius: 25px;
+      align-self: center;
+    }
+    h5 {
+      font-family: $titlefont;
+      align-self: center;
+      color: $darkc;
+    }
+    h6 {
+      @include zeroAround
+      color: $darkc;
+      font-weight: lighter;
+    }
+    .country-title {
+      align-self: flex-end;
+    }
+  }
+  .pending {
+    opacity: 50%
+  }
+}
+
+.previous-trips {
+  grid-column: 1 / 3;
+  @include gridArea($darkw, $highmedc);
+  padding: 1vh;
+  @include flexControl(column);
+  h4 {
+    @include zeroAround;
+    font-family: $titlefont;
+  }
+  .previous-trip-header {
+    @include flexControl(row);
+    padding: 2px;
+    justify-content: space-between;
+  }
+  .image-scroll {
+    @include flexControl(row);
+    padding: 2px;
+    height: 15vh;
+    overflow-x: scroll;
+    img {
+      height: 10vh;
+      width: 15vw;
+      padding: 2px;
+      border-radius: 10px;
+      align-self: center;
+    }
+  }
 }

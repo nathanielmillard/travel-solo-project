@@ -1,0 +1,28 @@
+// mixins
+@mixin zeroAround {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flexControl ($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-between;
+}
+
+@mixin gridArea ($bgc, $tc) {
+  background-color: $bgc;
+  color: $tc;
+  border-radius: 15px;
+  margin: 1vh;
+  padding: 2vw;
+  h3 {
+    @include zeroAround;
+    font-family: $titlefont;
+  }
+  h5 {
+    @include zeroAround;
+    padding-left: 1vw;
+    font-weight: 600;
+  }
+}
