@@ -41,7 +41,6 @@ const test = () =>{
 const submitTrip = () => {
   domUpdates.makeTripRequest();
   setTimeout(function() {getUserData()}, 2000);
-  alert('Your agent will let you know if we can make this happen!!')
 }
 
 let travelForm = document.querySelector(".trip-request")

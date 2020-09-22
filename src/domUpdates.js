@@ -36,8 +36,8 @@ const domUpdates = {
     })
     return `
     <div class="trip-card ${trip.status}">
-      <h5>Where are you headed?</h5>
-      <h6 class = "country-title"> ${destination.destination} </h6>
+      <h4>Where are you headed?</h4>
+      <h5 class = "country-title"> ${destination.destination} </h5>
       <img src=${destination.image} alt="Photo of destination">
       <h6>Leaving: ${trip.date}</h6>
     </div>
@@ -124,7 +124,7 @@ const domUpdates = {
       status: 'pending',
       suggestedActivities: [],
     }
-    console.log(trialTrip)
+    alert('Your agent will let you know if we can make this happen!!')
     fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips',
     {
       method: 'POST',
