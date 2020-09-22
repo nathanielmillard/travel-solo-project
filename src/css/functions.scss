@@ -10,10 +10,11 @@
   justify-content: space-between;
 }
 
-@mixin gridArea ($bgc, $tc) {
+@mixin gridArea ($bgc, $tc, $bc) {
   background-color: $bgc;
   color: $tc;
   border-radius: 15px;
+  border: 2.5px solid $bc;
   margin: 1vh;
   padding: 2vw;
   h3 {
