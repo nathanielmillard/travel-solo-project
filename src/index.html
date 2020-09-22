@@ -16,15 +16,18 @@
     <main>
       <form class="trip-request" action="index.html" method="post">
         <h3>Let's go Somewhere New!</h3>
-        <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Random travel photo">
+        <img class="travel-form-photo" src="https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" alt="Lima Peru">
         <h5>Where?</h5>
-        <input type="text" name="" value="city, country">
+        <select class="where-to travel-form-place" name="country drop down">
+        </select>
         <h5>When?</h5>
-        <input type="text" name="" value="date">
+        <input class="travel-form-date" type="date" value="date you are leaving" min="2020-09-27">
         <h5>How long?</h5>
-        <input type="text" name="" value="how many days">
+        <input class="travel-form-days" type="number" name="" value="how many days" min="1">
         <h5>Who's coming?</h5>
-        <input type="text" name="" value="how many guests">
+        <input class="travel-form-people" type="number" name="" value="how many guests" min="1">
+        <h5 class="travel-form-estimate">Estimated Cost: </h5>
+        <button class="submit-button" type="button" name="click to book trip">Book It!</button>
       </form>
       <section class="trip-cards">
         <h3>Trips to look forward to!</h3>

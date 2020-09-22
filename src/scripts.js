@@ -23,9 +23,30 @@ const getUserData = () => {
     domUpdates.user.sortTrips();
     domUpdates.updateUpcomingTrips();
     domUpdates.updatePreviousTrips();
+    domUpdates.updateForm();
+
   })
   .catch(error => console.log(error))
 };
 
 
-window.onload = getUserData()
+const interactWithForm = () => {
+  domUpdates.checkFormCost();
+  domUpdates.updateFormImage();
+}
+
+const test = () =>{
+  alert('test')
+}
+const submitTrip = () => {
+  domUpdates.makeTripRequest();
+  setTimeout(function() {getUserData()}, 2000);
+  alert('Your agent will let you know if we can make this happen!!')
+}
+
+let travelForm = document.querySelector(".trip-request")
+travelForm.addEventListener("change", interactWithForm);
+
+let submitButton = document.querySelector(".submit-button")
+submitButton.addEventListener("click", submitTrip)
+window.onload = getUserData;
