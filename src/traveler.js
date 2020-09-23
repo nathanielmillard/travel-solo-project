@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 class Traveler {
-  constructor(traveler, tripsData){
+  constructor(traveler, tripsData) {
     this.id = traveler.id;
     this.name = traveler.name;
     this.travelerType = traveler.travelerType;
@@ -14,8 +14,8 @@ class Traveler {
   }
   calculateAnnualSpending (today) {
     let mytrips = this.allTrips.filter(trip => trip.userID === this.id)
-      this.totalSpentAnnually = mytrips.reduce((total, trip) => {
-      if(moment(trip.date).year() === moment(today).year()){
+    this.totalSpentAnnually = mytrips.reduce((total, trip) => {
+      if (moment(trip.date).year() === moment(today).year()) {
         total += trip.estimatedCost
       }
       return total
@@ -28,9 +28,9 @@ class Traveler {
       return trip
     })
     mytrips.forEach((trip) => {
-      if(moment(trip.date).format('YYYY-MM-DD') > moment(today).format('YYYY-MM-DD')) {
+      if (moment(trip.date).format('YYYY-MM-DD') > moment(today).format('YYYY-MM-DD')) {
         this.futureTrips.push(trip)
-      } if (moment(trip.date).format('YYYY-MM-DD') < moment(today).format('YYYY-MM-DD')){
+      } if (moment(trip.date).format('YYYY-MM-DD') < moment(today).format('YYYY-MM-DD')) {
         this.pastTrips.push(trip)
       } if (trip.status === 'pending') {
         this.pendingTrips.push(trip)

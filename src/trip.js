@@ -11,7 +11,7 @@ class Trip {
     this.estimatedCost = 0;
     this.destination = destination;
   }
-  calculateEstimatedCost(){
+  calculateEstimatedCost() {
     let total = (this.destination.estimatedFlightCostPerPerson * this.travelers)
     total += (this.destination.estimatedLodgingCostPerDay * this.duration)
     total += (total * .1)
