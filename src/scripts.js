@@ -24,33 +24,31 @@ const getUserData = (number) => {
     fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips'),
     fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/destinations/destinations')
   ])
-  .then(responses => Promise.all(responses.map(response => response.json())))
-  .then(responses => {
-    let tripDeck = responses[1].trips.map(trip => {
-      let destination = responses[2].destinations.find(destination => {
-        return destination.id === trip.destinationID
+    .then(responses => Promise.all(responses.map(response => response.json())))
+    .then(responses => {
+      let tripDeck = responses[1].trips.map(trip => {
+        let destination = responses[2].destinations.find(destination => {
+          return destination.id === trip.destinationID
+        })
+        return new Trip(trip, destination)
       })
-      return new Trip(trip, destination)}
-    )
-    let specificUser = responses[0].travelers.find(traveler => traveler.id === number)
-    let user = new Traveler(specificUser, tripDeck)
-    domUpdates.assignKeyValues(user, tripDeck, responses[2].destinations, today);
-    domUpdates.updateSiteInfo()
-  })
-  .catch(error => console.log(error))
+      let specificUser = responses[0].travelers.find(traveler => traveler.id === number)
+      let user = new Traveler(specificUser, tripDeck)
+      domUpdates.assignKeyValues(user, tripDeck, responses[2].destinations, today);
+      domUpdates.updateSiteInfo()
+    })
+    .catch(error => console.log(error))
 };
 
 const interactWithForm = () => {
-  let place = document.querySelector(".travel-form-place")
   updateFormImage();
   buildInputTrip();
 }
 
 const buildInputTrip = () => {
-  let travelFormEstimate = document.querySelector(".travel-form-estimate")
-  if (travelFormDate.value && travelFormDays.value && travelFormPeople.value){
+  if (travelFormDate.value && travelFormDays.value && travelFormPeople.value) {
     let destination =  domUpdates.allDestinations.find(destination => {
-    return destination.destination === travelFormPlace.value
+      return destination.destination === travelFormPlace.value
     });
     let latestTripRequest = domUpdates.allTrips.pop();
     let trialtrip = {
@@ -78,27 +76,27 @@ const updateFormImage = () => {
 }
 
 const submitTrip = () => {
-  if (travelFormDate.value && travelFormDays.value && travelFormPeople.value){
+  if (travelFormDate.value && travelFormDays.value && travelFormPeople.value) {
     alert('Your agent will let you know if we can make this happen!!')
-    fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips',
-    {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(buildInputTrip())
-    })
-    .then(response => console.log(response))
-    .then(getUserData(domUpdates.user.id))
-    .catch(error => console.log(error))
+      fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips',
+      {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(buildInputTrip())
+      })
+      .then(response => console.log(response))
+      .then(getUserData(domUpdates.user.id))
+      .catch(error => console.log(error))
   } else {
     alert('We still need more info gurl!')
   }
 }
 
 const logIn = () => {
-  if (!username.value || !password.value){
+  if (!username.value || !password.value) {
     logInButton.innerText = "Try again honey..."
     setTimeout(function() {logInButton.innerText = "Log In"}, 1200)
-  } else if (username.value.includes("traveler") && password.value === 'travel2020'){
+  } else if (username.value.includes("traveler") && password.value === 'travel2020') {
     let index = parseInt(username.value.split('traveler')[1])
     logInPage.classList.add('hidden')
     main.classList.remove('hidden')
