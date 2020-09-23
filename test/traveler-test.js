@@ -1,7 +1,5 @@
 import chai from 'chai';
 const expect = chai.expect;
-import moment from 'moment';
-
 
 import trips from '../data/dummyTripsData.js'
 import travelers from '../data/dummyTravelerData.js'
@@ -9,8 +7,7 @@ import destinations from '../data/dummyDestinations.js'
 import Traveler from '../src/traveler.js'
 import Trip from '../src/trip.js'
 
-// var moment = require('moment')
-let trip1, trip2, trip3, theseTrips, traveler1, traveler2, traveler3
+let trip1, trip2, trip3, theseTrips, traveler1, traveler2
 let date
 
 describe('Traveler Class', function() {
@@ -24,7 +21,6 @@ describe('Traveler Class', function() {
     });
     traveler1 = new Traveler(travelers[0], theseTrips);
     traveler2 = new Traveler(travelers[1], theseTrips);
-    // traveler3 = new Traveler(travelers[2], theseTrips);
     date = '2019/11/16'
   });
 

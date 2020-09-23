@@ -5,13 +5,12 @@ import trips from '../data/dummyTripsData.js'
 import destinations from '../data/dummyDestinations.js'
 import Trip from '../src/trip.js'
 
-let trip1, trip2, trip3, destination1
+let trip1, trip2, destination1
 
 describe('Trip Class', () => {
   beforeEach(() => {
     trip1 = new Trip(trips[0], destinations[0])
     trip2 = new Trip(trips[1], destinations[0])
-    trip3 = new Trip(trips[2], destinations[0])
     destination1 = destinations[0]
   });
 

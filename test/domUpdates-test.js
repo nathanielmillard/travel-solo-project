@@ -8,10 +8,10 @@ import travelers from '../data/dummyTravelerData.js'
 import Traveler from '../src/traveler.js'
 import Trip from '../src/trip.js'
 
-let trip1, trip2, trip3, theseTrips, traveler1, traveler2, traveler3
+let trip1, trip2, trip3, theseTrips, traveler1
 let date
 
-describe.only('DOM', function() {
+describe('DOM', function() {
   beforeEach(()=>{
     trip1 = new Trip(trips[0], destinations[0])
     trip2 = new Trip(trips[1], destinations[0])
@@ -21,8 +21,6 @@ describe.only('DOM', function() {
       trip.calculateEstimatedCost();
     });
     traveler1 = new Traveler(travelers[0], theseTrips);
-    traveler2 = new Traveler(travelers[1], theseTrips);
-    traveler3 = new Traveler(travelers[2], theseTrips);
     date = '2019/11/16'
   })
   it('should store some default values', function() {
