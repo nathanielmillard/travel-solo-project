@@ -11,7 +11,7 @@ import Trip from '../src/trip.js'
 let trip1, trip2, trip3, theseTrips, traveler1
 let date
 
-describe.only('DOM', function() {
+describe('DOM', function() {
   beforeEach(()=>{
     trip1 = new Trip(trips[0], destinations[0])
     trip2 = new Trip(trips[1], destinations[0])

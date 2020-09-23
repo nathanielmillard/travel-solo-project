@@ -7,7 +7,6 @@ import destinations from '../data/dummyDestinations.js'
 import Traveler from '../src/traveler.js'
 import Trip from '../src/trip.js'
 
-// var moment = require('moment')
 let trip1, trip2, trip3, theseTrips, traveler1, traveler2
 let date
 

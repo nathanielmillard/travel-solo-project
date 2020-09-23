@@ -3,7 +3,6 @@ import moment from 'moment';
 import Traveler from '../src/traveler.js'
 import Trip from '../src/trip.js'
 
-
 let travelForm = document.querySelector(".trip-request")
 let submitButton = document.querySelector(".submit-button")
 let logInButton = document.querySelector(".login-button")
