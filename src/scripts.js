@@ -51,7 +51,7 @@ const buildInputTrip = () => {
     });
     let latestTripRequest = domUpdates.allTrips.pop();
     let trialtrip = {
-      id: latestTripRequest.id + 1,
+      id: latestTripRequest.id + 4,
       userID: parseInt(domUpdates.user.id),
       destinationID: parseInt(destination.id),
       travelers: parseInt(travelFormPeople.value),
@@ -84,7 +84,7 @@ const submitTrip = () => {
         body: JSON.stringify(buildInputTrip())
       })
       .then(response => console.log(response))
-      .then(getUserData(domUpdates.user.id))
+      .then(response => getUserData(domUpdates.user.id))
       .catch(error => console.log(error))
   } else {
     alert('We still need more info gurl!')
